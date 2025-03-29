@@ -1,0 +1,25 @@
+@use "../scss/variables.scss" as *;
+
+.banner {                                 // On ajoute une classe banner pour paramétrer le style de la bannière
+    position : relative;                   
+    background-position: center;           
+    background-size: cover;                
+                                             
+    padding-inline: 2rem;                 
+    background-image: url("https://unsplash.it/1920/1080");
+    min-height: 140px;                                        
+    margin: auto;
+    border-radius: 2rem;
+    display: grid;
+    place-items: center;
+    color: $color-tertiary;
+    margin-bottom : 2rem;
+    max-width: 100%;
+    &::before {                             
+      position: absolute;                   
+      border-radius: 2rem;                                         
+      content : "";                         
+      inset : 0;                            
+      opacity : 0.5;                        
+}
+}

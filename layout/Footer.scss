@@ -1,0 +1,11 @@
+@use "../scss/variables.scss" as *;
+
+.footer {                                         // On ajoute une classe footer pour paramétrer le style du footer
+    background-color: $footer-background-color;
+    color: $color-tertiary;
+    padding:20px;
+    text-align: center;
+    min-height: 100px;
+    display: grid;
+    place-items: center; 
+}
