@@ -1,0 +1,17 @@
+@use "../scss/variables.scss" as *;
+
+.error-page {                         // On ajoute une classe error-page pour paramétrer le style de la page d'erreur
+  color: $color-primary;
+  text-align: center;
+  h1 {
+    font-size: 10rem;
+    margin-bottom: 0.5em;
+  }
+  h2 {
+    font-size: 28px;
+    font-weight: 400;
+  }
+  a {
+    color: $color-primary;
+  }
+}
