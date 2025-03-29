@@ -1,0 +1,44 @@
+@use "../scss/variables.scss" as *;
+
+.navbar {                                         // On ajoute une classe navbar pour paramétrer le style de la barre de navigation
+    display: flex;
+    align-items: center;
+    padding: 0 3rem;
+    color: $color-primary;
+    font-weight: 700;
+    gap: 2rem;
+    font-size: larger;
+    @media screen and (width <= 768px) {         // On ajoute un media query pour les écrans de taille inférieure ou égale à 768px
+        text-transform: uppercase;
+        font-weight: 400;
+        padding: 0 2.5rem;
+        }
+    @media screen and (width <= 530px) {         // On ajoute un media query pour les écrans de taille inférieure ou égale à 530px
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: medium;
+        padding: 0 0.5rem;
+        gap : 1rem;
+        .navbar__logo {
+            margin-right: -4rem;
+        }
+        .navbar__logo img {
+            width: 70%;
+            height: auto;
+        }
+        & > *:first-child {                    // N'importe quel élément (*) a l'intérieur de la navbar qui est le first child (premier enfant) direct (d'où le >)  on va appliquer  une "margin right :auto" afin que le logo soit à gauche et que tout le "Acceuil et A propos soit à droite */    
+            margin-right: auto;                
+        }
+    }
+    & > *:first-child {                        // Pour tout les enfants directs à l'interieur de la navbar (pour le logo)  on va mettre une "margin right :auto" afin que le logo soit à gauche et que tout le "Acceuil" et "A propos" soit à droite */    
+        margin-right: auto;                   
+    }               
+    & a {                                      /*On cherche a retirer les barres on dessous des titres/liens (Acceuil et A propos)  */
+        text-decoration: none;
+        color: $color-primary;
+        &.active,                              /* Apparition d'une barre sous le lien dont la page est affichée. */         
+        &:hover {                              /* Si la souris passe sur l'élemEnt ciblé souligne cet élément*/
+            text-decoration: underline;
+        }
+    }
+}

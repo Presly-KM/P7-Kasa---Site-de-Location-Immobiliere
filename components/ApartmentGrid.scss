@@ -1,0 +1,35 @@
+@use "../scss/variables.scss" as colors;      // On importe les couleurs definis dans le fichier variables.scss. 
+
+.grid {                                               // On ajoute une classe grid pour paramétrer le style de la grille
+    background-color: colors.$background-dark; 
+    min-height: 50vh;                         
+    border-radius: 2rem;
+    display: flex;                             
+    flex-wrap: wrap;                          
+    gap: 1rem;
+    padding: 1rem;
+    justify-content: space-between;
+    &>* {                                     
+        width: 100%;
+        max-width: 20rem;
+    }
+}
+
+@media screen and (width <=768px) {
+    .grid {
+        justify-content: center;
+        background-color: colors.$grid-background-light;      
+        padding: 0;
+        &>* {
+            max-width: 21rem;               
+        }
+    }
+}
+
+@media screen and (width <=530px) {
+    .grid {
+        &>* {                             
+            max-width: 25rem;               
+        }
+    }
+}

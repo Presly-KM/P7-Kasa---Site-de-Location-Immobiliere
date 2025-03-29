@@ -1,0 +1,40 @@
+@use "../scss/variables.scss" as *;
+
+.description__panel {                          // On ajoute une classe description__panel pour paramétrer le style de la description
+    margin-bottom: 1rem;
+    flex-basis: 50%;
+    overflow: hidden;                          // On ajoute un overflow hidden pour cacher le contenu de la description qui dépasse de la boite de la description 
+    p {
+      margin-block: 0;
+    }
+    .description__header {
+      background-color: $color-primary;
+      color: $color-tertiary;
+      padding: 0.2em 1em;
+      border-radius: 0.7rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      i {                                     
+        font-size: 2rem;
+        cursor: pointer;
+      }
+    }
+    .description__content {
+      background-color: $background-light;
+      color: $color-primary;
+      padding: 1rem;
+      border-radius: 0.7rem;
+      position: relative;
+      top: -0.3rem;
+      z-index: -1;
+      transition: transform 0.3s ease-in-out;   // On ajoute une transition pour l'animation de la description lorsqu'elle se déploie pour etre visible ou se replie pour etre cachée. Ici l'animation de déploiment ou retractation de la description durera 0.3s
+      &.hidden {                                // On ajoute une classe "hidden" pour la description qui est cachée
+        transform: translateY(-100%);           // On déplace la description de 100% de sa hauteur vers le haut pour la cacher
+      }
+      &.visible {                               // On ajoute une classe "visible" pour la description qui est visible
+        transform: translateY(0);               // Quand on arrive a la fin de l'animation (descrition pleinement déployé) le translate Y sera à 0
+      }
+    }
+  }

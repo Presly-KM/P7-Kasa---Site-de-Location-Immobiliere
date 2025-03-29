@@ -1,0 +1,77 @@
+@use "../scss/variables.scss" as *;
+
+.apartment__header {                                 // On ajoute une classe "apartment__header" pour paramétrer le style de l'en-tête de l'appartement
+    display: flex;                                   // On change la disposition des éléments de la div "apartment__header" pour qu'ils soient en ligne (horizontalement). On utilise la propriété "display" avec la valeur "flex" pour cela.
+    margin-bottom: 2rem;
+    gap: 1rem;
+    @media screen and (width <= 768px) {
+      flex-direction: column;
+    }
+    .apartment__title {
+      flex-grow: 1;                                   // On fait en sorte que le titre de l'appartement prenne tout l'espace disponible. On utilise la propriété "flex-grow" avec la valeur "1" pour cela.
+    }
+    .apartment__owner {
+      display: flex;
+      flex-direction: column;
+      @media screen and (width <= 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+    .apartment__owner__details {
+      display: flex;
+      gap: 0.5rem;
+      @media screen and (width <= 768px) {
+        order: 1;
+      }
+    }
+    .apartment__owner__badge img {                  // On ajoute une image pour le badge. 
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      background-color: $background-dark;
+    }
+    .apartment__owner__stars {
+      display: flex;                                
+      justify-content: center;
+      align-items: center;
+      gap: 0.2rem;
+      color: $background-dark;                    // Par défaut les étoiles sont de couleur foncée
+      * {                                         // "*" signifie que l'on applique la règle à tous les éléments enfants de ".apartment__owner__stars"
+        font-size: 2rem;
+      }
+      .on {                                        // On ajoute une classe "on" pour les étoiles qui sont allumées. cf l.31 de ApartmentHeader.jsx
+        color: $color-primary;
+      }
+    }
+    h1 {
+      font-weight: 400;
+      margin-block: 0;
+    }
+    h2 {
+      font-weight: 400;
+      margin-top: 0.5em;
+      margin-bottom: 0.2em;
+      font-size: 20px;
+    }
+  
+    .apartment__tags {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 150px)); // On change la taille des tags pour qu'ils soient plus grands. On utilise la fonction "repeat" pour répéter les tags en fonction de la taille de l'écran. On utilise aussi la fonction "auto-fit" pour que les tags s'adaptent à la taille de l'écran. On utilise la fonction "minmax" pour définir une taille minimale et maximale pour les tags.
+      gap: 1rem;
+      span {
+        background-color: $color-primary;
+        color: $color-tertiary;
+        padding: 0.3em 0.5em;
+        border-radius: 0.7rem;
+        text-align: center;
+      }
+    }
+    h3 {
+      margin-block: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      font-weight: 400;
+    }
+  }

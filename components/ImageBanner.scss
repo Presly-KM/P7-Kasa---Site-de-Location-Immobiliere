@@ -1,0 +1,54 @@
+@use "./../scss/variables.scss" as *;
+
+.image__banner {                             // On ajoute une classe image__banner pour paramétrer le style de la bannière d'image
+  position: relative;                        // Apres avoir afficher les images les unes apres les autres on decide désormais de les superposer. Pour se faire, on commence par mettre image_banner en position relative (pour que les éléments enfants puissent être positionnés par rapport à ce conteneur)
+  margin-bottom: 2rem;
+  .btn {
+    position: absolute;                     // On met les boutons en position absolute pour qu'ils soient positionnés par rapport à l'élément parent (image__banner)
+    top: 0;
+    bottom: 0;
+    width: 5rem;                            // On fixe la largeur des boutons à 5rem
+    background-color: transparent;
+    color: $color-tertiary;                 // On fixe la couleur du texte des boutons à la couleur tertiaire
+    font-size: 3rem;
+    cursor: pointer;
+    border-width: 0;
+    &:active,                               // On ajoute un effet de pression sur les boutons lorsqu'ils sont cliqués. 
+    &:focus {
+      outline: none;                        // On enlève le focus sur les boutons lorsqu'ils sont cliqués. 
+    }
+    &.btn-next {                            // On ajoute une classe btn-next pour le bouton suivant. & signifie ici que la classe btn-next est un enfant de la classe btn (A ajouter pour que le bouton soit positionné correctement)
+      right: 0;                             // On positionne le bouton suivant à droite  
+    }
+    &.btn-previous {                        // On ajoute une classe btn-previous pour le bouton précédent. & signifie ici que la classe btn-previous est un enfant de la classe btn (A ajouter pour que le bouton soit positionné correctement)
+      left: 0;                              // On positionne le bouton précédent à gauche  
+    }
+  }
+  .slide-counter {                          // On ajoute une classe slide-counter pour le compteur de slide
+    position: absolute;
+    color: $color-tertiary;
+    border-radius: 0 0 0 1rem;
+    width: 100%;
+    bottom: 1rem;
+    text-align: center;
+  }
+  .image__container {
+    width: 100%;
+    height: 20rem;                          // On fixe la hauteur de l'image à 20rem
+    position: relative;
+    img {
+      position: absolute;                   // On fixe une position absolute pour que les images soient superposées
+      width: 100%;                          // On fixe la largeur de l'image à 100%   
+      height: 100%;                         // On fixe la hauteur de l'image à 100%  (N.B : Ces deux paramétres à 100% mettent déja l'image a la taille correcte)
+      inset: 0;
+      object-fit: cover;
+      border-radius: 1rem;
+      box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+      opacity: 0;                           // Pour chacune des images on met une opacité à 0 par défaut ce qui aura pour effet de les rendre invisibles
+      transition: opacity 0.5s ease-in-out; // On ajoute une transition pour l'opacité de l'image. l'animation de l'opacité (passage de 0 à 1) durera 0.5s. Ainsi lorsqu'on change d'image, l'ancienne image disparaitra progressivement et la nouvelle apparaitra progressivement (passage de l'opacité de 0 à 1)
+      &.show {                              // On ajoute une classe show pour l'image qui est affichée 
+        opacity: 1;                         // Toute image présentant la classe "show" (indiquant qu'elle est affiché) a l'opacité réglée à 1 afin de la rendre visible.
+      }
+    }
+  }
+}

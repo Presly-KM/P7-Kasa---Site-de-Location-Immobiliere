@@ -1,0 +1,33 @@
+@use "../scss/variables.scss" as *;
+ 
+.apartment {                     // On ajoute une classe apartment pour paramétrer le style de de la carte de l'appartement
+    border-radius: 1rem;
+    flex-basis: 30%;
+    display: grid;
+    align-items: end;
+    min-width: 200px;           /* Dans un soucis d'accésibilité (portable; smartphone) on prévoit la largeur d'affichage pour écrans réduits*/
+    min-height: 200px;
+    background-size: cover;
+    position: relative;         
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 1rem;
+      box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+      filter: brightness(0.8);
+    }
+    @media screen and (width <= 768px) {
+        .apartment {
+          flex-basis: 100%;
+        }
+    } 
+    & &__subtitle {            
+    width: 50%;
+    margin-inline-start: 0.5rem;
+    margin-block-end: 0.5rem;
+    color: $color-tertiary;
+    position: absolute;        /*On veut que le texte sorte de l'image. On veut que le texte soit placé au dessus de l'image. En posiiton absolue l'élément va completement sortir du DOM, il va se mettre au dessus de notre page et il va se positionner par rapport à son premier parent relatif */
+  }
+}
+
